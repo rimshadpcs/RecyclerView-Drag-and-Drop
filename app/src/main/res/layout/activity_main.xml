@@ -13,5 +13,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tv_birds"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/candy_pink"
+        android:text="@string/birds"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintRight_toLeftOf="@+id/tv_animals">
+    </TextView>
+
+    <TextView
+        android:id="@+id/tv_animals"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/dark_sea_green"
+        android:gravity="center"
+        android:text="@string/animal"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/tv_birds"
+        app:layout_constraintRight_toRightOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
