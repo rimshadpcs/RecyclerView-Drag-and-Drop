@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Drag and drop</string>
+    <string name="birds">Birds</string>
+    <string name="animal">Animal</string>
 </resources>
