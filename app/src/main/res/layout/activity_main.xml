@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray"
     tools:context=".view.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -16,29 +17,31 @@
     <TextView
         android:id="@+id/tv_birds"
         android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/candy_pink"
+        android:layout_height="150dp"
+        android:background="@drawable/dove"
         android:text="@string/birds"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_chainStyle="spread"
         android:gravity="center"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
         app:layout_constraintLeft_toLeftOf="parent"
         android:textColor="@color/white"
-        android:textSize="17sp"
+        android:textSize="20sp"
         app:layout_constraintRight_toLeftOf="@+id/tv_animals">
     </TextView>
 
     <TextView
         android:id="@+id/tv_animals"
         android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/dark_sea_green"
+        android:layout_height="150dp"
+        android:background="@drawable/bear"
         android:gravity="center"
-        android:text="@string/animal"
+        android:text="@string/animals"
         android:textColor="@color/white"
-        android:textSize="17sp"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/tv_birds"
         app:layout_constraintRight_toRightOf="parent"/>

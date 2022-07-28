@@ -2,6 +2,7 @@ package com.rimapps.projectTsukinoMeKeikaku.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -14,10 +15,20 @@ class SpeciesAdapter(
     private val speciesList: ArrayList<Species>
 ): RecyclerView.Adapter<SpeciesAdapter.SpeciesViewHolder>() {
 
+    private var mListener: OnItemLongClickListener? = null
+
+    interface OnItemLongClickListener {
+        fun onItemLongClick(view: View, species: Species)
+    }
+
+    fun setOnItemLongClickListener(listener: OnItemLongClickListener) {
+        mListener = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpeciesViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val speciesBinding: SpeciesBinding = DataBindingUtil.inflate(layoutInflater, R.layout.species_list,parent,false)
-        return SpeciesViewHolder(speciesBinding)
+        return SpeciesViewHolder(speciesBinding, mListener)
     }
 
     override fun getItemCount(): Int {
@@ -34,10 +45,16 @@ class SpeciesAdapter(
 
     class SpeciesViewHolder(
         private val speciesBinding: SpeciesBinding,
+        private val listener: OnItemLongClickListener?
+
     ): RecyclerView.ViewHolder(speciesBinding.root){
         fun bind(speciesViewModel: Species){
             this.speciesBinding.speciesModel = speciesViewModel
 
+            itemView.setOnLongClickListener {
+                listener?.onItemLongClick(itemView, speciesViewModel)
+                true
+            }
             speciesBinding.executePendingBindings()
         }
     }
