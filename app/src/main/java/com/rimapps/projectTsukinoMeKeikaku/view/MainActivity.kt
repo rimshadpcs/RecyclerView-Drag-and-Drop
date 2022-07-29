@@ -69,8 +69,13 @@ class MainActivity : AppCompatActivity(), SpeciesAdapter.OnItemLongClickListener
                 true
             }
             DragEvent.ACTION_DRAG_LOCATION -> {
-                activityMainBinding.tvAnimals.alpha = 0.5F
-                activityMainBinding.tvBirds.alpha = 0.5f
+                if (dropArea.text==activityMainBinding.tvAnimals.text){
+                    activityMainBinding.tvAnimals.alpha = 0.5F
+                }
+                else{
+                    activityMainBinding.tvBirds.alpha = 0.5f
+                }
+
                 true
             }
             DragEvent.ACTION_DRAG_EXITED -> {
